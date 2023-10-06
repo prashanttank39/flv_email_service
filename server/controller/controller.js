@@ -1,4 +1,4 @@
-var Userdb = require('../model/model');
+var Templatedb = require('../model/model');
 
 // create and save new user
 exports.create = (req,res)=>{
@@ -9,16 +9,17 @@ exports.create = (req,res)=>{
     }
 
     // new user
-    const user = new Userdb({
-        name : req.body.name,
-        email : req.body.email,
-        gender: req.body.gender,
+    const template = new Templatedb({
+        templete_name : req.body.templete_name,
+        frequency : req.body.frequency,
+        email_subject: req.body.email_subject,
+        email_body: req.body.email_body,
         status : req.body.status
     })
 
     // save user in the database
-    user
-        .save(user)
+    template
+        .save(template)
         .then(data => {
             //res.send(data)
             res.redirect('/add-user');
@@ -37,8 +38,9 @@ exports.find = (req, res)=>{
     if(req.query.id){
         const id = req.query.id;
 
-        Userdb.findById(id)
+        Templatedb.findById(id)
             .then(data =>{
+                console.log("DATE",data);
                 if(!data){
                     res.status(404).send({ message : "Not found user with id "+ id})
                 }else{
@@ -50,9 +52,9 @@ exports.find = (req, res)=>{
             })
 
     }else{
-        Userdb.find()
-            .then(user => {
-                res.send(user)
+        Templatedb.find()
+            .then(template => {
+                res.send(template);
             })
             .catch(err => {
                 res.status(500).send({ message : err.message || "Error Occurred while retriving user information" })
@@ -71,7 +73,7 @@ exports.update = (req, res)=>{
     }
 
     const id = req.params.id;
-    Userdb.findByIdAndUpdate(id, req.body, { useFindAndModify: false})
+    Templatedb.findByIdAndUpdate(id, req.body, { useFindAndModify: false})
         .then(data => {
             if(!data){
                 res.status(404).send({ message : `Cannot Update user with ${id}. Maybe user not found!`})
@@ -88,7 +90,7 @@ exports.update = (req, res)=>{
 exports.delete = (req, res)=>{
     const id = req.params.id;
 
-    Userdb.findByIdAndDelete(id)
+    Templatedb.findByIdAndDelete(id)
         .then(data => {
             if(!data){
                 res.status(404).send({ message : `Cannot Delete with id ${id}. Maybe id is wrong`})

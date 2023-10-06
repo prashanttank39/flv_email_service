@@ -1,19 +1,26 @@
 const mongoose = require('mongoose');
 
 var schema = new mongoose.Schema({
-    name : {
+    templete_name : {
         type : String,
-        required: true
-    },
-    email : {
-        type: String,
         required: true,
         unique: true
     },
-    gender : String,
+    frequency : {
+        type: String,
+        required: true,
+    },
+    email_subject : {
+        type: String,
+        required: true,
+    },
+    email_body : {
+        type: String,
+        required: true,
+    },
     status : String
 })
 
-const Userdb = mongoose.model('userdb', schema);
+const Templatedb = mongoose.model('templatedb', schema);
 
-module.exports = Userdb;
+module.exports = Templatedb;

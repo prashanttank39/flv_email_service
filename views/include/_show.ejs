@@ -1,15 +1,15 @@
-<% for(var i = 0; i < users.length; i++) { %>
+<% for(var i = 0; i < templates.length; i++) { %>
 <tr>
-    <td><%= i + 1 %></td>
-    <td><%= users[i].name %></td>
-    <td><%= users[i].email %></td>
-    <td><%= users[i].gender %></td>
-    <td><%= users[i].status %></td>
+    <td><%= templates[i].templete_name %></td>
+    <td><%= templates[i].frequency %></td>
+    <td><%= templates[i].email_subject %></td>
+    <td><%= templates[i].email_body %></td>
+    <td><%= templates[i].status %></td>
     <td>
-        <a href="/update-user?id=<%= users[i]._id%>" class="btn border-shadow update">
+        <a href="/update-user?id=<%= templates[i]._id%>" class="btn border-shadow update">
             <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
         </a>
-        <a class="btn border-shadow delete" data-id=<%= users[i]._id%> >
+        <a class="btn border-shadow delete" data-id=<%= templates[i]._id%> >
             <span class="text-gradient"><i class="fas fa-times"></i></span>
         </a>
     </td>

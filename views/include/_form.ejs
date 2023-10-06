@@ -2,28 +2,24 @@
  <form action="/api/users" method="POST" id="add_user">
     <div class="new_user">
         <div class="form-group">
-            <label for="name" class="text-light">Name</label>
+            <label for="templete_name" class="text-light">Template Name</label>
             <input type="hidden" name="id" value="">
-            <input type="text" name="name" value="" placeholder="Mark Stoenis">
+            <input type="text" name="templete_name" value="" placeholder="Template Name">
         </div>
         <div class="form-group">
-            <label for="Email" class="text-light">Email</label>
-            <input type="text" name="email" value="" placeholder="example@gmail.com">
+            <label for="frequency" class="text-light">Frequency</label>
+            <input type="text" name="frequency" value="" placeholder="Frequency">
         </div>
         <div class="form-group">
-            <label for="gender" class="text-light">Gender</label>
-            <div class="radio inline">
-                <input type="radio" id="radio-2" name="gender" value="Male" >
-                <label for="radio-2" class="radio-label">Male</label>
-            </div>
-            <div class="radio inline">
-                <input type="radio" id="radio-3" name="gender" value="Female" >
-                <label for="radio-3" class="radio-label">Female</label>
-            </div>
+            <label for="email_subject" class="text-light">Subject</label>
+            <input type="text" name="email_subject" value="" placeholder="Subject">
         </div>
-
         <div class="form-group">
-            <label for="gender" class="text-light">Status</label>
+            <label for="email_body" class="text-light">Body</label>
+            <input type="text" name="email_body" value="" placeholder="Body">
+        </div>
+        <div class="form-group">
+            <label for="status" class="text-light">Status</label>
             <div class="radio inline">
                 <input type="radio" id="radio-4" name="status" value="Active" >
                 <label for="radio-4" class="radio-label">Active</label>
