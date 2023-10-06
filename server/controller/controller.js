@@ -40,7 +40,6 @@ exports.find = (req, res)=>{
 
         Templatedb.findById(id)
             .then(data =>{
-                console.log("DATE",data);
                 if(!data){
                     res.status(404).send({ message : "Not found user with id "+ id})
                 }else{
@@ -78,7 +77,7 @@ exports.update = (req, res)=>{
             if(!data){
                 res.status(404).send({ message : `Cannot Update user with ${id}. Maybe user not found!`})
             }else{
-                res.send(data)
+                res.send(data);
             }
         })
         .catch(err =>{
