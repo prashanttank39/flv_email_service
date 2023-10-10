@@ -6,7 +6,7 @@ services:
     ports:
       - 27017:27017
   app:
-    image: flv_email_service
+    image: prashanttank39/flv_email_service
     environment:
       - PORT=5500
       - MONGO_URI=mongodb://mongo:27017/flv_email_service
